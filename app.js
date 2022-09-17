@@ -31,30 +31,37 @@ buttons.addEventListener('click', (e) => {
 buttons.addEventListener('click', (e) => {
   if (e.target.classList.contains('equal')) {
     let result = 0;
-    const value1 = Number(primaryDisplay.textContent);
-    const value2 = Number(secondaryDisplay.textContent);
-    const operator = '+';
+    const value1 = Number(secondaryDisplay.textContent.replace(/\D/g, ''));
+    const value2 = Number(primaryDisplay.textContent);
+    const operator = secondaryDisplay.textContent.replace(/[0-9]/g, '');
     switch (operator) {
       case '+':
         result = value1 + value2;
         break;
-      case '-':
+      case '−':
         result = value1 - value2;
         break;
-      case 'x':
+      case '×':
         result = value1 * value2;
         break;
       case '÷':
         result = value1 / value2;
         break;
     }
-    primaryDisplay.textContent = result;
-    secondaryDisplay.textContent = '';
+    secondaryDisplay.textContent = result;
+    primaryDisplay.textContent = 0;
   }
 });
 
+// When I click on AC button, calculator will reset
+buttons.addEventListener('click', (e) => {
+  if (e.target.classList.contains('ac')) {
+    secondaryDisplay.textContent = '';
+    primaryDisplay.textContent = 0;
+  }
+});
 
-
+//! when i click the plus minus button it should change the value of the number
 
 
 
