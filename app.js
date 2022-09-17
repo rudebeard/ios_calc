@@ -63,8 +63,29 @@ buttons.addEventListener('click', (e) => {
 
 //! when i click the plus minus button it should change the value of the number
 
+buttons.addEventListener('click',(e)=>{
+  if(e.target.classList.contains('pm')){
+    if((!primaryDisplay.textContent.includes('-')))
+    primaryDisplay.textContent='-' + primaryDisplay.textContent  }
+    else{
+      primaryDisplay.textContent=primaryDisplay.textContent.replace(/[-]/g,
+      '');
+    }
+})
 
 
+//? percentage is going to be made 
+buttons.addEventListener('click',(e)=>{
+  if(e.target.classList.contains('percent')){
+    secondaryDisplay.textContent=primaryDisplay.textContent/100;
+    primaryDisplay.textContent = 0;
+  }
+})
+
+//! decimal functionality is being made
+buttons.addEventListener('click',(e)=>{
+
+})
 
 
 
